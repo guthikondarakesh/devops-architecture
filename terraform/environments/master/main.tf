@@ -2,16 +2,16 @@ provider "google" {
   region      = "${var.region}"
 }
 
-resource "google_project" "giridhar_project" {
-  name       = "giridhar-project"
-  project_id = "giridhar-project-1"
+resource "google_project" "test_project" {
+  name       = "test-project"
+  project_id = "test-project-1"
 
   org_id = "${var.gsuite_org_id}"
   billing_account = "${var.billing_account_id}"
 }
 
 resource "google_project_iam_binding" "gsuite_project_owner" {
-  project = "${google_project.giridhar_project.project_id}"
+  project = "${google_project.test_project.project_id}"
   role    = "roles/owner"
 
   members = [
